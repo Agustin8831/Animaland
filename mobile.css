@@ -1,0 +1,428 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  counter-reset: game;
+}
+.phone {
+  width: 31rem;
+  height: 65rem;
+  border-radius: 5rem;
+  box-shadow: 0 0 20px rgb(165, 164, 164);
+  border: 8px solid black;
+  background-color: #c6f4ff;
+  position: relative;
+  overflow: hidden;
+}
+input[type=checkbox] {
+  appearance: none;
+  margin: 0; 
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  height: 4rem;
+}
+input[type=checkbox]:checked {
+  counter-increment: game;
+}
+.titulo {
+  color: rgb(255, 167, 52);
+  text-shadow: 0 .2rem 0rem rgba(53, 53, 53, 0.979);
+  font-family: 'Bungee', cursive;
+  text-align: center;
+  font-size: 3rem;
+}
+.score {
+  color: #686868;
+  text-shadow: 0 .2rem 0rem rgba(0, 0, 0, 0.267);
+  font-family: 'Bungee', cursive;
+  font-size: 2rem;
+  top: -2rem;
+  text-align: center;
+}
+.score::after {
+  content: counter(game);
+  font-family: 'Bungee', cursive;
+}
+.rana-1,.rana-2,.rana-3,.rana-4 {
+  position: absolute;
+  width: 6.5rem;
+  display: flex;
+  justify-content: center;
+}
+.cabeza {
+  width: 100%;
+  height: 5rem;
+  background-color: #c8df90;
+  border-radius: 70%;
+  border: 3px solid #751a1b;
+  position: relative;
+}
+.ojo {
+  top: -.6rem;
+  position: absolute;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 3px solid #751a1b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #c8df90;
+}
+.ojo-izq {
+  left: .2rem;
+}
+.ojo-der {
+  right: .2rem;
+}
+.pupila {
+  width: 100%;
+  height: 100%;
+  background-color: #c8df90;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  overflow: hidden;
+}
+.pupila::before {
+  background-color: #751a1b;
+  content: "";
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  animation-name: ojo;
+  animation-duration: 3s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+}
+.destello {
+  width: .25rem;
+  height: .25rem;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: .5rem;
+  right: .7rem;
+}
+.boca {
+  overflow: hidden;
+  height: .5rem;
+  display: flex;
+  position: absolute;
+  left: 2rem;
+  top: .8rem;
+  transform: rotate(180deg);
+}
+.labio {
+  width: .9rem;
+  height: .9rem;
+  border-radius: 50%;
+  border: 3px solid #751a1b;
+}
+.labio-der {
+  position: relative;
+  right: .25rem;
+}
+@keyframes ojo {
+  0%{ 
+    height: 1rem;
+  }
+  5%{ 
+    height: .1rem;
+  }
+  10%{
+    height: 1rem;
+  }
+}
+.monte {
+  z-index: 3;
+  position: absolute;
+  width: 20rem;
+  bottom: 0;
+  background-color: rgb(233, 165, 109);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: -.5rem 1rem 1rem rgba(83, 83, 83, 0.274);
+}
+.llerva {
+  width: 100%;
+  height: 3rem;
+  background: linear-gradient(135deg, rgb(0, 212, 71) 25%, transparent 25%) -50px 0,
+        linear-gradient(-135deg, rgb(4, 161, 30) 25%, transparent 25%) -50px 0,
+        linear-gradient(45deg, rgb(4, 161, 30) 25%, transparent 25%),
+        linear-gradient(-45deg, teal 25%, transparent 25%);
+  background-size: 20px 110px;
+}
+.rana-1 {
+  left: 4rem;
+  animation-name: rana-1;
+  animation-duration: 1.5s;
+  animation-timing-function: cubic-bezier(.65,.33,.4,.99);
+  animation-iteration-count: infinite;
+  bottom: -3rem;
+  height: 50rem;
+  z-index: 1;
+}
+.rana-2 {
+  animation-name: rana-2;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(.4,.61,.4,.99);
+  animation-iteration-count: infinite;
+  left: 13rem;
+  z-index: 2;
+  height: 46rem;
+  bottom: -2rem;
+}
+.rana-3 {
+  height: 35rem;
+  left: 15rem;
+  animation-name: rana-3;
+  animation-duration: 3s;
+  animation-timing-function: cubic-bezier(.66,.34,.42,.97);
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  bottom: -3rem;
+  z-index: 3;
+}
+.rana-4 {
+  height: 29rem;
+  left: 2rem;
+  animation-name: rana-4;
+  animation-duration: 1.5s;
+  animation-timing-function: cubic-bezier(.96,.34,.42,.97);
+  animation-iteration-count: infinite;
+  bottom: -4rem;
+  z-index: 3;
+}
+.monte-1 {
+  left: 2.5rem;
+  height: 45rem;
+}
+.monte-2 {
+  height: 35rem;
+  left: 12rem;
+}
+.monte-3 {
+  box-shadow: .5rem 1rem 1rem rgba(83, 83, 83, 0.274);
+  height: 28rem;
+  left: 0rem;
+  bottom: -2rem;
+}
+input[type=checkbox] {
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  margin: 0;
+  position: absolute;
+  width: 100%;
+}
+@keyframes rana-1 {
+  0%{ 
+    bottom: -3rem;
+  }
+  50%{ 
+    bottom: 1rem;
+  }
+  100%{
+    bottom: -3rem;
+  }
+}
+@keyframes rana-2 {
+  0%{ 
+    bottom: -2rem;
+  }
+  50%{ 
+    bottom: 1rem;
+  }
+  100%{
+    bottom: -2rem;
+  }
+}
+@keyframes rana-3 {
+  0%{ 
+    bottom: -3rem;
+  }
+  20%{ 
+    bottom: 4rem;
+    transform: translateX(2rem);
+  }
+  40% {
+    bottom: 0rem;
+    transform: translate(3rem,1rem);
+  }
+  60% {
+    bottom: 3rem;
+    transform: translate(5rem,-1rem);
+  }
+  80% {
+    bottom: -2rem;
+    transform: translate(7rem,1rem);
+  }
+  100%{
+    transform: translate(7rem,-2rem);
+    bottom: -1rem;
+  }
+}
+@keyframes rana-4 {
+  0%{ 
+    bottom: -4.5rem;
+  }
+  50%{ 
+    bottom: 1.5rem;
+  }
+  100%{
+    bottom: -4.5rem;
+  }
+} 
+.nube {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  z-index: 4;
+}
+.base {
+  position: absolute;
+  width: 15rem;
+  height: 7rem;
+  border-radius: 4rem;
+  background-color: rgb(199, 253, 255);
+  box-shadow: -1rem 1rem 1rem rgba(0, 0, 0, 0.239);
+}
+.cir{
+  box-shadow: -1rem 0 1rem rgba(0, 0, 0, 0.239);
+  position: absolute;
+  background-color: rgb(199, 253, 255);
+  border-radius: 50%;
+  width: 8rem;
+  height: 8rem;
+  transform: translatey(-3rem);
+}
+.base-2 {
+  width: 16rem;
+  height: 7rem;
+  background-color: rgb(255, 255, 255);
+}
+.cir-2 {
+  width: 8rem;
+  background-color: rgb(255, 255, 255);
+}
+.base-3 {
+  width: 20rem;
+  height: 8rem;
+  background-color: rgb(129, 218, 253);
+}
+.cir-3 {
+  width: 10rem;
+  transform: translatey(-4rem);
+  background-color: rgb(129, 218, 253);
+}
+.base-4 {
+  width: 24rem;
+  height: 8rem;
+  background-color: rgb(231, 248, 255);
+}
+.cir-4 {
+  width: 12rem;
+  transform: translatey(-4rem);
+  background-color: rgb(231, 248, 255);
+}
+.nube-1 {
+  transform: translate(6rem,48rem);
+  animation: nube-1 25s linear infinite alternate-reverse;
+}
+.nube-2 {
+  transform: translate(-7rem,50rem);
+  animation: nube-2 20s linear infinite alternate-reverse;
+}
+.nube-3 {
+  transform: translate(-4rem,43rem);
+  animation: nube-3 20s linear infinite alternate-reverse;
+}
+.nube-4 {
+  transform: translate(-4rem,39rem);
+  animation: nube-4 17s linear infinite alternate-reverse;
+}
+@keyframes nube-1 {
+  0%{
+    transform: translate(6rem,48rem);
+  }
+  50%{
+    transform: translate(-7rem,50rem);
+  }
+  100%{
+    transform: translate(6rem,48rem);
+  }
+}
+@keyframes nube-2 {
+  0%{
+    transform: translate(-7rem,50rem);
+  }
+  30%{
+    transform: translate(5rem,48rem);
+  }
+  60%{
+    transform: translate(-6rem,44rem);
+  }
+  100%{
+    transform: translate(-7rem,50rem);
+  }
+}
+@keyframes nube-3 {
+  0%{
+    transform: translate(-4rem,43rem);
+  }
+  30%{
+    transform: translate(-5rem,48rem);
+  }
+  60%{
+    transform: translate(4rem,44rem);
+  }
+  100%{
+    transform: translate(-4rem,43rem);
+  }
+}
+@keyframes nube-4 {
+  0%{
+    transform: translate(-4rem,42rem);
+  }
+  50%{
+    transform: translate(4rem,45rem);
+  }
+  100%{
+    transform: translate(-4rem,42rem);
+  }
+}
+.filtro {
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 4;
+  width: 100%;
+  height: 26rem;
+  background: rgb(2,0,36);
+  background: -moz-linear-gradient(180deg, rgba(2,0,36,0) 0%, rgba(0,178,215,1) 78%);
+  background: -webkit-linear-gradient(180deg, rgba(2,0,36,0) 0%, rgba(0,178,215,1) 78%);
+  background: linear-gradient(180deg, rgba(2,0,36,0) 0%, rgba(0,178,215,1) 78%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#00b2d7",GradientType=1);
+}
